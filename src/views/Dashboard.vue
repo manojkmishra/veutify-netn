@@ -1,6 +1,19 @@
 <template>
   <div class="dashboard">
-    <h1>Dashboard</h1>
+    <h1 class="subheading grey--text">Dashboard</h1>
+    <v-container class="my-5">
+      <v-layout row wrap>
+         <v-flex xs12 md6><v-btn outlined block >1</v-btn></v-flex>
+         <v-flex xs4 md2><v-btn outlined block >2</v-btn></v-flex>
+         <v-flex xs4 md2><v-btn outlined block >2</v-btn></v-flex>
+         <v-flex xs4 md2><v-btn outlined block >2</v-btn></v-flex>
+      </v-layout>
+      <br>
+       <v-layout row wrap justify-space-around>
+         <v-flex xs4 md3><v-btn outlined block >43</v-btn></v-flex>
+         <v-flex xs4 md3><v-btn outlined block >2</v-btn></v-flex>
+      </v-layout>
+    </v-container>
 
   </div>
 </template>
