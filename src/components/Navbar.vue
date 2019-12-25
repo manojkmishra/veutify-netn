@@ -12,7 +12,7 @@
                 <v-icon right>exit_to_app</v-icon>
             </v-btn>
         </v-app-bar>
-        <v-navigation-drawer v-model="drwr" app temporary class="indigo">
+        <v-navigation-drawer v-model="drwr" app  class="primary">
             <p>Test</p>
         </v-navigation-drawer>
     </nav>
