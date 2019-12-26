@@ -7,7 +7,9 @@
             <v-flex xs12 md6> <div class="caption grey--text">Project title</div> <div>{{project.title}}</div>  </v-flex>
             <v-flex xs6 sm4 md2> <div class="caption grey--text">Person</div> <div> {{project.person}}</div> </v-flex>
             <v-flex xs6 sm4 md2><div class="caption grey--text">Due by</div> <div> {{project.due}}</div> </v-flex>
-            <v-flex xs2 sm4 md2> <div class="caption grey--text">Status</div> <div>{{project.status}}</div> </v-flex>
+            <v-flex xs2 sm4 md2> <div class="right"><v-chip small :color="`${project.status}`" 
+                         :class="`v-chip--active white--text caption my-2`">{{project.status}}</v-chip></div> 
+            </v-flex>
           </v-layout>
           <v-divider/>
       </v-card>
@@ -15,6 +17,10 @@
   </div>
 </template>
 <style>
+.v-chip.complete{background:#3cd1c2;}
+.v-chip.ongoing{background:#ff9100;}
+.v-chip.overdue {background:#d1413c;}
+
 .project.complete{ border-left:4px solid #3cd1c2}
 .project.ongoing{ border-left:4px solid orange}
 .project.overdue{ border-left:4px solid tomato}
