@@ -13,6 +13,12 @@
             </v-btn>
         </v-app-bar>
         <v-navigation-drawer v-model="drwr" app  class="teal">
+               <v-layout column align-center>
+                    <v-flex class="mt-5">
+                         <v-avatar size="100" class="grey lighten-4"><img src="/avatar-1.png"></v-avatar>
+                         <p class="white--text subheading mt-1">Manoj Mishra </p>
+                    </v-flex>
+               </v-layout>
                <v-list rounded>
                     <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                         <v-list-item-icon>
