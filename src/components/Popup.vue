@@ -40,8 +40,9 @@ export default {
                         due:format(parseISO(this.due),'do MMM yyyy'),
                         person:'Manoj Mishra', status: 'ongoing'
                         }
-                        db.collection('projects').add(project).then(()=>{
-                            console.log('added'); this.loading=false; this.dialog=false}) // eslint-disable-line
+                        db.collection('projects').add(project).then(()=>
+                          { console.log('added'); this.loading=false;  // eslint-disable-line
+                            this.dialog=false; this.$emit('projectAdded') }) 
                    }
             }  
     },
