@@ -35,7 +35,11 @@
                          <v-avatar size="100" class="grey lighten-4"><img src="/avatar-1.png"></v-avatar>
                          <p class="white--text subheading mt-1">Manoj Mishra </p>
                     </v-flex>
+                    <v-flex>
+                        <Popup class="mt-4 mb-3"/>
+                    </v-flex>
                </v-layout>
+
                <v-list rounded>
                     <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                         <v-list-item-icon>
@@ -50,7 +54,9 @@
     </nav>
 </template>
 <script>
+import Popup from './Popup'
 export default {
+        components:{Popup},
     data(){return{drwr:true, links: [
         { icon: 'mdi-view-dashboard', text: 'Dashboard', route: '/' },
         { icon: 'mdi-folder', text: 'My Projects', route: '/projects' },
