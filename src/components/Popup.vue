@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog width="500">
+    <v-dialog width="500" v-model="dialog">
       <template v-slot:activator="{ on }">
         <v-btn class="success" dark v-on="on">Add New Project</v-btn>
       </template>
@@ -29,7 +29,8 @@ import db from '@/fb' // eslint-disable-line
 import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 export default {
-    data(){  return{title:'', content:'', due:'', inputRules:[v=>v.length>=3||'Min len is 3 chars'], loading:false}    },
+    data(){  return { title:'', content:'', due:'', inputRules:[v=>v.length>=3||'Min len is 3 chars'],
+              loading:false, dialog:false }    },
     methods:{
         submit(){ if(this.$refs.form.validate())
                    {    this.loading=true;
@@ -40,7 +41,7 @@ export default {
                         person:'Manoj Mishra', status: 'ongoing'
                         }
                         db.collection('projects').add(project).then(()=>{
-                            console.log('added'); this.loading=false;}) // eslint-disable-line
+                            console.log('added'); this.loading=false; this.dialog=false}) // eslint-disable-line
                    }
             }  
     },
