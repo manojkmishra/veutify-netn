@@ -7,6 +7,23 @@
                 <span>Analytics</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
+<!--dropdown menu -->
+<v-menu offset-y>
+    <template v-slot:activator="{ on }">
+        <v-btn text v-on="on" color="grey">
+            <v-icon left>expand_more</v-icon>
+            <span>Menu</span>
+        </v-btn>
+    </template>
+     <v-list>
+        <v-list>
+        <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
+        </v-list-item>
+    </v-list>
+    </v-list>
+</v-menu>
+<!--finish dropdown menu -->
             <v-btn text color="grey">
                 <span>signout</span>
                 <v-icon right>exit_to_app</v-icon>
