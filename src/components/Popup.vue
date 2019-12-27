@@ -25,13 +25,19 @@
   </div>
 </template>
 <script>
+import db from '@/fb' // eslint-disable-line
 import format from 'date-fns/format'
- import parseISO from 'date-fns/parseISO'
+import parseISO from 'date-fns/parseISO'
 export default {
     data(){  return{title:'', content:'', due:'', inputRules:[v=>v.length>=3||'Min len is 3 chars']}    },
     methods:{
         submit(){ if(this.$refs.form.validate())
                     console.log('form items=',this.title,this.content, this.due)   // eslint-disable-line
+                    const project={title:this.title,content:this.content, 
+                    due:format(parseISO(this.due),'do MMM yyyy'),
+                    person:'Manoj Mishra', status: 'ongoing'
+                    }
+                    db.collection('projects').add(project).then(()=>{console.log('added')}) // eslint-disable-line
             }  
     },
     computed:{formattedDate(){return this.due ? format(parseISO(this.due),'do MMM yyyy') : ''}}
