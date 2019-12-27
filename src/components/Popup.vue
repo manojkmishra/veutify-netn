@@ -6,7 +6,24 @@
       </template>
       <v-card>
         <v-card-title class="headline grey lighten-2" primary-title>Add a New Project</v-card-title>
+        <v-card-text>
+            <v-form class="px-3">
+                <v-text-field label="Title" v-model="title" prepend-icon="mdi-folder"></v-text-field>
+                <v-textarea label="Information" v-model="content" prepend-icon="mdi-pencil"></v-textarea>
+                <v-btn text class="success mx-0 mt-3" @click="submit">Add Project</v-btn>
+            </v-form>
+        </v-card-text>
       </v-card>
     </v-dialog>
   </div>
 </template>
+<script>
+export default {
+    data(){
+        return{title:'', content:''}
+    },
+    methods:{
+        submit(){console.log('form items=',this.title,this.content)}  // eslint-disable-line
+    }
+}
+</script>
